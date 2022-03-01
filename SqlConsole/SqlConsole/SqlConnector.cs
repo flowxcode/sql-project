@@ -10,10 +10,10 @@ namespace SqlConsole
 {
     public class SqlConnector
     {
-        public static void ReadCarData()
+        public void ReadCarData()
         {
             string connectionString = "Data Source=VMWM\\SQLEXPRESS;Initial Catalog=restDB;Integrated Security=SSPI";
-            string queryString = "SELECT OrderID, CustomerID FROM dbo.Orders;";
+            string queryString = "SELECT ID, Name FROM dbo.Cars;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -33,7 +33,7 @@ namespace SqlConsole
             }
         }
 
-        private static void ReadSingleRow(IDataRecord dataRecord)
+        private void ReadSingleRow(IDataRecord dataRecord)
         {
             Console.WriteLine(String.Format("{0}, {1}", dataRecord[0], dataRecord[1]));
         }
